@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <title>simulador de tienda online de venta de remeras</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid miBarra">
+                <h1 class="navbar-brand">AVENTURA WEAR</h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" id="abrirCarrito" href="#">Carrito</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
+    <!-- <h1>AVENTURA WEAR</h1> -->
+    </header>
+    <main> 
+    <div class="container-fluid gx-0">
+        <div class="row">
+        <img src="images/banner2.jpeg" alt="banner del sitio" width="100%">
+        
+
+        <h2 class="saludo" id="bienvenida">Mira nuestra gran coleccion de remeras!!</h2>
+        </div> <!-- fin row -->
+        <div class="row ">
+            <div class="mt-5 col-3 boxFiltro">
+                <div id="filtro">
+                    <label class="my-4">Fitrar por color</label> 
+                    <select class="mb-4 form-select form-select-sm w-50" id="selectorColor" name="color">
+                        <option id="todos" value="todos" selected>Todos</option>
+                        <option id="azul" value="azul">Azul</option>
+                        <option id="rojo" value="rojo">Rojo</option>
+                        <option id="gris" value="gris">Gris</option>
+                        <option id="naranja" value="naranja">Naranja</option>
+                        <option id="coral" value="coral">Coral</option>
+                        <option id="negro" value="negro">Negra</option>
+                    </select>
+                    <br>
+                    <button  type="button" class="btn btn-secondary btn-sm" id="btnFiltro" >Aplicar filtro</button>
+                </div>
+                <div class="mt-5" id="filtroPrecio">
+                    <label class="my-4">Precio máximo</label> 
+                    <select class="mb-4 form-select form-select-sm w-50" id="selectorPrecio" name="color">
+                        <option id="valor1700" value="1700" selected>1700</option>
+                        <option id="valor2000" value="2000">2000</option>
+                        <option id="valor3000" value="3000" selected>3000</option>
+                    </select>
+                    <br>
+                    <button  type="button" class="btn btn-secondary btn-sm" id="btnFiltroPrecio" >Aplicar filtro</button>
+                </div>
+            </div>
+            <div  class="col-9 boxProductos">  
+                <div class="row  d-flex flex-row" id="contenedorProductos" >
+                </div>   
+            </div>
+        </div> 
+        <div class="miCarrito" id="miCarrito">
+            <div class="productosComprados" id="productosComprados">   
+            </div>
+            
+            <form send="" class="chartForm" id="chartForm" >
+                <p class="leyendaComprado">Gracias por su compra, complete sus datos para la entrega</p>
+                <div class="form-floating mb-3" id="grupo__nombre">
+                    <!-- <input width="200px" type="text" class="form-control" id="nombre"  placeholder="nombreyapellido" required pattern="[a-zA-Z\s]{5,25}" title="Solo admite letras"> -->
+                    <input width="200px" type="text" class="form-control  " id="inputNombre" name="inputNombre" >
+                    <label for="inputNombre">Nombre y apellido</label>
+                    <p class="inputError">Error en formato nombre, ingresar entre 4 y 40 letras</p>
+                </div>
+                <div class="form-floating mb-3" id="grupo__direccion">
+                    <!-- <input type="text" class="form-control" id="direccion" placeholder="direccióndeentrega" required> -->
+                    <input type="text" class="form-control" id="inputDireccion" name="inputDireccion" >
+                    <label for="inputDireccion">Direccion de entrega</label>
+                    <p class="inputError">Error en dirección</p>
+                </div>
+                <div class="form-floating mb-3" id="grupo__email">
+                    <!-- <input type="email" class="form-control" id="eMail" name="eMail" placeholder="name@example.com" > -->
+                    <input  class="form-control  " id="inputEmail" name="inputEmail">
+                    <label for="inputEmail">Email address</label>
+                    <p class="inputError">error en email, formato inválido</p>
+                </div>
+                <div class="form-floating mb-3" id="grupo__telefono">
+                    <!-- <input type="tel" class="form-control" id="telefono" placeholder="teléfono" required pattern="[0-9]{6,14}"> -->
+                    <input type="tel" class="form-control " id="inputTelefono" name="inputTelefono"  >
+                    <label for="inputTelefono">teléfono</label>
+                    <p class="inputError">Error en telefono, ingresar solo números</p>
+                </div>
+                <div class="form-floating mb-3" id="grupo__tarjeta">
+                    <!-- <input type="text" class="form-control" id="tarjeta" placeholder="numeroDeTarjeta" required> -->
+                    <input type="text" class="form-control " id="inputTarjeta" name="inputTarjeta"  >
+                    <label for="inputTarjeta">Numero de tarjeta de credito</label>
+                    <p class="inputError">Error en tarjeta, ingresar los 16 dígitos</p>
+                </div>
+                <button type="submit"  class="btn btn-secondary" id="botonPagar" >Pagar</button>
+            </form>
+        
+        </div>
+        
+    </div><!-- del container-fluid -->
+    </main>   
+    <footer>
+
+    </footer>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/clases.js"></script>
+<script src="js/main.js"></script>
+<script src="js/filtro.js"></script>
+<!-- <script src="js/formulario.js"></script> -->
+<script src="js/carrito.js"></script>
+<script src="js/formulario.js"></script>
+</html>
+
+
+
+
+

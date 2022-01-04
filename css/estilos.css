@@ -1,0 +1,182 @@
+
+*{
+    padding:0;
+    margin: 0;
+}
+html {
+    font-size: 100%;
+}
+
+
+body {
+    overflow-x: hidden;
+}
+a.nav-link {
+    font-size: 1.3rem;
+}
+h1.navbar-brand {
+    font-size: 1.7rem ;
+    padding-right: 0.1rem;
+}
+
+h3{
+    font-size: 1.5rem;
+}
+.banner {
+    position: absolute;
+    width: 98.8vw;
+    overflow-x: hidden;
+    z-index: -10;
+}
+.saludo{
+    font-size: 1.7rem;
+    font-weight: 500;
+    background-color: rgba(163, 163, 204, 0.16);
+    margin-top: 1rem;
+    z-index: 1;
+    position: absolute; top: 200px; left: 6vW;
+    /* text-align: start;   */ 
+    width: 60vw;
+}
+
+.boxFiltro {
+    width: 15vw;
+    background-color: rgb(250, 249, 239);
+}
+
+.box {
+    max-width: 16vw;
+    min-width: 12rem;    /* display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap; */  
+    border: 1px solid burlywood;
+    border-radius: 0.4rem;
+    padding-bottom: 2rem;
+    margin: 0.4rem;
+    height: 24rem;
+}
+
+.productoCarrito {   /* producto en carrito   */
+    width: 17vw;    
+    border-radius: 0.4rem;
+    padding-bottom: 2rem;
+    height: 19rem;  
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.productoCarrito img {
+    width: 10vw;
+}
+
+.boxProductos {   
+    width: 85vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+.agregarAlCarrito {
+    margin-top: 0.5rem;
+    display:none;
+    z-index: 10;
+}
+
+#filtro  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#filtroPrecio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxFiltro label {
+    font-size: 1.2rem;
+}
+
+
+.miCarrito {
+    height: 100%; 
+    width: 0px; /* change this with JavaScript */
+    position: fixed; /* Stay in place */ 
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgb(36, 35, 35); 
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.productosComprados {   /* contenedor de productos del carrito    */
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 0.5rem;
+}
+.productosComprados p {
+    color: black;
+}
+.leyendaComprados{
+    color: white;
+    font-size: 1.2rem;
+}
+
+.chartForm {
+    color: black;
+    width: 50%;
+    display: none;
+    /* visibility: hidden; */
+}
+.chartForm .leyendaComprado {
+    color: white;
+}
+
+.miBarra {
+    height: 2rem !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} 
+.navbar-brand{
+    padding-top:0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#botonComprar {
+    display: inline;
+}
+#botonPagar {
+    display: none;
+}
+
+.inputError {
+
+	display: none;
+}
+
+.inputErrorActivo {
+    display: block;
+    color: white;
+}
