@@ -14,7 +14,7 @@ const campos = {
 	telefono: false,
     tarjeta: false,
 }
-
+//Aplica la explesión regular que corresponda en cada input, y valida la entrada si respeta el formato indicado
 const validarCampo = (expresion, input, campo) => {
 	if(expresion.test(input.value)){
 		document.querySelector(`#grupo__${campo} .inputError`).classList.remove('inputErrorActivo');
@@ -48,11 +48,11 @@ const validarCampo = (expresion, input, campo) => {
         }
     } 
     if(campos.nombre && campos.direccion  && campos.tarjeta && campos.email && campos.telefono){
-        
         estadoFormulario = true;
     }
 }
 
+//Toma los datos del formulario y los asigna al objeto instanciado clase clientes
 function datosForm (){
     nombreCliente=$("#inputNombre").val();
     emailCliente =$("#inputEmail").val();

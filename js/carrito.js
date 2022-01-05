@@ -1,6 +1,6 @@
 let estadoFormulario = false;
 
-//vista del carrito
+//vista del carrito, botones e importe total.
 function vistaCarrito(){
     return `<h2>CARRITO</h2>
             <h4 id='importe'>IMPORTE TOTAL: $ ${importeGuardado}</h4>
@@ -33,14 +33,12 @@ function estructuraCarrito(){
 		//si el formulario esta ok, finaliza compra
 		e.preventDefault();
 		validarImputsFormulario ();
-		if ( estadoFormulario /*&&  importeTotal > 0 */) {
+		if ( estadoFormulario ) {
 			datosForm(); 
 			finalizarCompra();
 			estadoFormulario = false;
 			formulario.reset();
-		} else {
-			console.log("error de formato de imputs")
-		}
+		} 
 	} 
 	comprar = document.getElementById("botonComprar")
 	comprar.addEventListener("click", ()=>{ 	
@@ -56,35 +54,15 @@ function ordenarBotones(){
 		document.getElementById("chartForm").style.display="block";
 		document.getElementById("botonComprar").style.visibility="hidden";
 		document.getElementById("botonPagar").style.display="inline";
-	} /* else if( totalAComprar === 0) {
-		document.getElementById("chartForm").style.display="hidden";
-	     document.getElementById("botonComprar").style.visibility="hidden";
-		document.getElementById("botonPagar").style.display="hidden"; 
-	} */
+	} 
 }
-function ordenarBotonesCompraCancelada(){
-if (importeTotal == 0) {
-	document.getElementById("chartForm").style.display="hidden";
-	document.getElementById("botonComprar").style.visibility="hidden";
-	document.getElementById("botonPagar").style.display="hidden"; 
-}
-}
-
-/* function ordenarBotones(){
-	let totalAComprar = localStorage.getItem("importeTotal")
-	if (totalAComprar > 0){
-		document.getElementById("chartForm").style.display="block";
-		document.getElementById("botonComprar").style.visibility="hidden";
-		document.getElementById("botonPagar").style.display="inline";
-	}
-} */
 
 //Esta función tiene la estructura de los cards de productos en carrito
 function vistaProductoEnCarrito(producto){ 
     return `<div id=${producto.id + "zapato"} class="col-12 col-sm-12 col-md-3 card productoCarrito">
             <img src= ${producto.img} width="150px" class="card-img-top mt-3"  alt=${producto.name}>
             <p class="my-0 pComprado">${producto.nombre}</p>
-            <p class="my-2">Precio $ ${producto.precio}</p>	<br>
+            <p class="my-2">Precio $ ${producto.precio}</p>	
             <p>Cantidad ${producto.cantidad}</p>
             <button type="button" class="btn btn-secondary btn-sm" id=${producto.id+"remover"}>Quitar</button>
             </div>` //
@@ -97,13 +75,13 @@ function openChart() {
 		$(".productosComprados").append(vistaProductoEnCarrito(producto))
 		$(`#${producto.id+"remover"}`).on('click',  () => quitarProductos());
 		function quitarProductos(){
-			//quita productos del carrito y de de ordenDeCompra
+			//quita productos del carrito y de ordenDeCompra
 			if (producto.cantidad > 1) {	
 				producto.cantidad--;
 				let itemToRemove = document.getElementById(`${producto.id + "zapato"}`);
 				itemToRemove.innerHTML = vistaProductoEnCarrito(producto);
 				$(`#${producto.id+"remover"}`).on('click',  () => quitarProductos());
-				//itemToRemove.innerHTML hace perder la funcionalidad del botón
+				//repito funcionalidad itemToRemove.innerHTML hace perder la funcionalidad del botón
 				importe(ordenDeCompra); 		
 			}
 			else if (producto.cantidad === 1) {
@@ -125,7 +103,7 @@ function openChart() {
 	} 
 }  
 
-//votón para abrir acrrito, miCarrito tiene width 0 por defecto, con btnOpen para a 100%
+//botón para abrir carrito, miCarrito tiene width 0 por defecto, con btnOpen pasa a 100%
 let btnOpen = document.getElementById("abrirCarrito");
 btnOpen.addEventListener("click", openChart);
 

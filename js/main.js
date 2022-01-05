@@ -92,7 +92,7 @@ function informarSinStock(producto) {    // CANDIDATO A VISTA
 							`;  
 }
 
-// cargar carrito si hay 
+// cargar carrito si hay orden cargada en el localstorage
 function cargarLocalStorage(){
 	if(almacenados){
 		for(const producto of almacenados){

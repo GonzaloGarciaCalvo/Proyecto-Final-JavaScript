@@ -19,7 +19,7 @@ function buscarProductoPorColor() {
 buscarProductoPorColor()
 
 
-
+// filtra el array por precio, rango tomado del select del html
 function buscarPreciosBaratos() {
 	const btnFiltroPrecio = document.getElementById("btnFiltroPrecio");
 	btnFiltroPrecio.addEventListener("click",filtroPrecio);
@@ -32,8 +32,6 @@ function buscarPreciosBaratos() {
 		};//si hay algo previamente cargado lo borra
 		cargarProductos(baratos)
 	}
-	// filtra el array por precio, solo permite ingresar un numero > 0
-	
 }
 
 buscarPreciosBaratos()
