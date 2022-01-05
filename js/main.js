@@ -8,9 +8,8 @@ let pagar;
 let miData;
 const almacenados = JSON.parse(localStorage.getItem("ordenDeCompra"));
 
-/* Trae datos   */
+// Trae datos  de productos
 const URL = "datos/productos.json";
-
 $.getJSON(URL, (response, status) => {
     if( status == "success") { 
 			for(const elemento of response){
@@ -20,9 +19,9 @@ $.getJSON(URL, (response, status) => {
 	cargarProductos(arrayDeProductos);
 })
 
-
+//Carga productos
 function cargarProductos(productos){
-	for (const producto of productos) {// CANDIDATO A VISTA
+	for (const producto of productos) {
 		$("#contenedorProductos").append(`<div id=${producto.id + "ropa"} class="col-12 col-sm-12 col-md-3 card box my-3">
 		<img src= ${producto.img} width="150px" class="card-img-top mt-3"  alt=${producto.name}>
 		<p class="my-0">${producto.nombre}</p>
@@ -93,10 +92,9 @@ function informarSinStock(producto) {    // CANDIDATO A VISTA
 							`;  
 }
 
-
+// cargar carrito si hay 
 function cargarLocalStorage(){
 	if(almacenados){
-		// cargar carrito, convertir ese objeto a clase, para poder utilizar los métodos de la clase
 		for(const producto of almacenados){
 			ordenDeCompra.push(new Producto(producto.id, producto.nombre, producto.precio, producto.color, producto.stock, producto.estilo, producto.img, producto.cantidad))
 		}

@@ -33,7 +33,7 @@ function estructuraCarrito(){
 		//si el formulario esta ok, finaliza compra
 		e.preventDefault();
 		validarImputsFormulario ();
-		if ( estadoFormulario) {
+		if ( estadoFormulario /*&&  importeTotal > 0 */) {
 			datosForm(); 
 			finalizarCompra();
 			estadoFormulario = false;
@@ -56,8 +56,28 @@ function ordenarBotones(){
 		document.getElementById("chartForm").style.display="block";
 		document.getElementById("botonComprar").style.visibility="hidden";
 		document.getElementById("botonPagar").style.display="inline";
-	}
+	} /* else if( totalAComprar === 0) {
+		document.getElementById("chartForm").style.display="hidden";
+	     document.getElementById("botonComprar").style.visibility="hidden";
+		document.getElementById("botonPagar").style.display="hidden"; 
+	} */
 }
+function ordenarBotonesCompraCancelada(){
+if (importeTotal == 0) {
+	document.getElementById("chartForm").style.display="hidden";
+	document.getElementById("botonComprar").style.visibility="hidden";
+	document.getElementById("botonPagar").style.display="hidden"; 
+}
+}
+
+/* function ordenarBotones(){
+	let totalAComprar = localStorage.getItem("importeTotal")
+	if (totalAComprar > 0){
+		document.getElementById("chartForm").style.display="block";
+		document.getElementById("botonComprar").style.visibility="hidden";
+		document.getElementById("botonPagar").style.display="inline";
+	}
+} */
 
 //Esta función tiene la estructura de los cards de productos en carrito
 function vistaProductoEnCarrito(producto){ 
@@ -86,15 +106,21 @@ function openChart() {
 				//itemToRemove.innerHTML hace perder la funcionalidad del botón
 				importe(ordenDeCompra); 		
 			}
-			else if (producto.cantidad <= 1) {
+			else if (producto.cantidad === 1) {
 				producto.cantidad--;
 				let itemToRemove = document.getElementById(`${producto.id + "zapato"}`);
 				itemToRemove.parentNode.removeChild(itemToRemove);
 				let om = ordenDeCompra.findIndex(elemento => elemento.id === producto.id);
 				let removido = ordenDeCompra.splice(om,1);
-				importe(ordenDeCompra);				 							
+				importe(ordenDeCompra);	
+								
 			}
 			localStorage.setItem("ordenDeCompra", JSON.stringify(ordenDeCompra));
+			if (importeTotal === 0){
+				//Si avanzado el proceso de compra, ya abierto el formulario, se quita producto, resetea carrito 
+				finalizarCarrito()
+				document.getElementById("chartForm").style.display = "none"; 	
+			}
 		}
 	} 
 }  
