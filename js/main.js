@@ -26,8 +26,11 @@ function cargarProductos(productos){
 		<img src= ${producto.img} width="150px" class="card-img-top mt-3"  alt=${producto.name}>
 		<p class="my-0">${producto.nombre}</p>
 		<p class="my-2">Precio $ ${producto.precio}</p>	<br>
-		<button type="button" class="btn btn-secondary" id=${producto.id}>Añadir al carrito</button>
-		<h5 class="agregarAlCarrito" id="agregado${producto.id}" >Agregado al carrito</h5>
+		<button  class="btn miboton btn-secondary " id=${producto.id}>Añadir al carrito</button>
+		<div class="espaciadorDeAgregado">
+		      <h5 class="agregarAlCarrito" id="agregado${producto.id}" >Agregado al carrito</h5>
+		</div>
+		
 		</div>`)
 		$(`#${producto.id}`).on('click',  () => comprarProductos(producto));
 		$(`#${producto.id}`).on('click',  () => $(`#agregado${producto.id}`).delay(0).slideDown(200).delay(750).slideUp(300));

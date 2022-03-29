@@ -40,24 +40,27 @@ h3{
 }
 
 .boxFiltro {
-    width: 15vw;
+    width: 12vw;
     background-color: rgb(250, 249, 239);
 }
 
 .box {
-    max-width: 16vw;
-    min-width: 12rem;    /* display: flex;
+    max-width: 18rem;
+    min-width: 12rem;     
+    display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
-    flex-wrap: wrap; */  
     border: 1px solid burlywood;
     border-radius: 0.4rem;
-    padding-bottom: 2rem;
+    padding-bottom: 3em;
     margin: 0.4rem;
-    height: 24rem;
+    height: 29rem;
 }
-
+#contenedorProductos{
+    margin-left: -2px;
+    margin-right: -2px;
+}
 .productoCarrito {   /* producto en carrito   */
     width: 17vw;    
     border-radius: 0.4rem;
@@ -74,10 +77,7 @@ h3{
 }
 
 .boxProductos {   
-    width: 85vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    width: 88vw;
     margin-top: 2rem;
     margin-bottom: 5rem;
 }
@@ -109,15 +109,15 @@ h3{
 
 .miCarrito {
     height: 100%; 
-    width: 0px; /* change this with JavaScript */
-    position: fixed; /* Stay in place */ 
+    width: 0px; 
+    position: fixed; 
     top: 0;
     left: 0;
     z-index: 1;
     background-color: rgb(36, 35, 35); 
     overflow-x: hidden; 
     padding-top: 60px; 
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    transition: 0.5s; 
     color:white;
     display: flex;
     flex-direction: column;
@@ -146,7 +146,6 @@ h3{
     color: black;
     width: 50%;
     display: none;
-    /* visibility: hidden; */
 }
 .chartForm .leyendaComprado {
     color: white;
@@ -179,4 +178,10 @@ h3{
 .inputErrorActivo {
     display: block;
     color: white;
+}
+.miboton {
+    width: 65%;
+}
+.espaciadorDeAgregado {
+    height: 1.2em;;
 }
