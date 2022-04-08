@@ -185,3 +185,28 @@ h3{
 .espaciadorDeAgregado {
     height: 1.2em;;
 }
+
+@media (max-width:576px){
+    .navbar-collapse {
+        align-items: center;
+        background-color: white;
+      }
+    .boxFiltro {
+        width: 100vw;
+    }
+    .saludo{
+        font-size: 1.6rem;
+        margin-top: 0rem;
+        position: absolute; top: 90px; left: 6vW;
+        width: 90vw;
+    }
+    .boxProductos {
+        width: 100vw;
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+    }
+    .row {
+        --bs-gutter-x: 0rem;
+    }
+
+}
